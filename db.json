@@ -8,5 +8,15 @@
       "data_nascimento": "2007-05-14",
       "endereco": "Rua das Flores, 123 - Pau dos Ferros/RN"
     }
+  ],
+  "professores": [
+    {
+      "id" : 1,
+      "nome": "Carlos Oliveira",
+      "email": "carlos@escola.com",
+      "cpf": "987.654.321-00",
+      "disciplina": "Programação para Internet",
+      "data_admissao": "2022-03-01"
+    }
   ]
 }

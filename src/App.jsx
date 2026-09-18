@@ -7,6 +7,7 @@ import PaginaInicial from "./pages/PaginaInicial";
 import PaginaListagem from "./pages/PaginaListagem";
 import PaginaCadastro from "./pages/PaginaCadastro";
 import { listarAlunos, criarAluno, excluirAluno } from "./services/alunoService";
+import PaginaCadastroProfessor from "./pages/PaginaCadastroProfessor";
 
 const mensagemConexao = "Não foi possível conectar à API. Você esqueceu de iniciar o json-server? Rode: npx json-server --watch db.json --port 3000";
 
@@ -63,6 +64,7 @@ function App() {
         <Route path="/" element={<PaginaInicial />} />
         <Route path="/alunos" element={<PaginaListagem alunos={alunos} aoExcluir={aoExcluir} />} />
         <Route path="/cadastro" element={<PaginaCadastro aoSalvar={aoSalvar} />} />
+        <Route path="/cadastroProfessor" element={<PaginaCadastroProfessor aoSalvar={aoSalvar} />} />
       </Routes>
     </div>
   );
