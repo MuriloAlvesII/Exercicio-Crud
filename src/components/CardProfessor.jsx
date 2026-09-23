@@ -6,7 +6,7 @@ function CardProfessor(props) {
             <p>CPF: {props.professor.cpf}</p>
             <p>Materia: {props.professor.disciplina}</p>
             <p>Data de admissão: {props.professor.data_admissao}</p>
-            <button onClick={function () {props.aoExcluirp(props.professor.id);}}>Excluir</button>
+            <button onClick={function () {props.aoExcluir(props.professor.id);}}>Excluir</button>
         </div>
     );
 }

@@ -11,12 +11,20 @@
   ],
   "professores": [
     {
-      "id" : 1,
+      "id": 1,
       "nome": "Carlos Oliveira",
       "email": "carlos@escola.com",
       "cpf": "987.654.321-00",
       "disciplina": "Programação para Internet",
       "data_admissao": "2022-03-01"
+    },
+    {
+      "nome": "Babao Prea Murion",
+      "email": "Babao.Prea.Murion@gmai.com",
+      "cpf": "111.111.111-11",
+      "disciplina": "Murion Costruto",
+      "data_admissao": "1111-11-11",
+      "id": 2
     }
   ]
 }

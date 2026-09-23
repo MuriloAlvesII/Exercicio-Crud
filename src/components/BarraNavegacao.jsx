@@ -6,7 +6,7 @@ function BarraNavegacao() {
       <Link to="/">Início</Link>
       <Link to="/alunos">Alunos</Link>
       <Link to="/cadastro">Cadastrar alunos</Link>
-      <Link to="professores">Professores</Link>
+      <Link to="/professores">Professores</Link>
       <Link to="/cadastroProfessor">Cadastrar professor</Link>
     </nav>
   );

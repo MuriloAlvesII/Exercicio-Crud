@@ -4,7 +4,7 @@ function PaginaCadastroProfessor(props) {
   return (
     <div className="pagina-cadastro">
       <h2>Cadastrar professor</h2>
-      <FormularioProfessor aoSalvar={props.aoSalvarp} />
+      <FormularioProfessor aoSalvar={props.aoSalvar} />
     </div>
   );
 }
