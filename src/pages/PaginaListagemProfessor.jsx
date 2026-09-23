@@ -1,12 +1,12 @@
-import ListaAlunos from "../components/ListaAlunos";
+import ListaProfessores from "../components/ListaProfessores";
 
-function PaginaListagem(props) {
+function PaginaListagemProfessor(props) {
   return (
     <div className="pagina-listagem">
-      <h2>Alunos cadastrados</h2>
-      <ListaAlunos alunos={props.alunos} aoExcluir={props.aoExcluir} />
+      <h2>Professores cadastrados</h2>
+      <ListaProfessores professores={props.professores} aoExcluir={props.aoExcluirp} />
     </div>
   );
 }
 
-export default PaginaListagem;
+export default PaginaListagemProfessor;

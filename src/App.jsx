@@ -7,22 +7,36 @@ import PaginaInicial from "./pages/PaginaInicial";
 import PaginaListagem from "./pages/PaginaListagem";
 import PaginaCadastro from "./pages/PaginaCadastro";
 import { listarAlunos, criarAluno, excluirAluno } from "./services/alunoService";
+import { listarProfessores, criarProfessor, excluirProfessor } from "./services/professorService";
 import PaginaCadastroProfessor from "./pages/PaginaCadastroProfessor";
+import PaginaListagemProfessor from "./pages/PaginaListagemProfessor";
 
 const mensagemConexao = "Não foi possível conectar à API. Você esqueceu de iniciar o json-server? Rode: npx json-server --watch db.json --port 3000";
 
 function App() {
   const [alunos, setAlunos] = useState([]);
+  const [professores, setProfessores] = useState([]);
   const [erro, setErro] = useState("");
 
   useEffect(function () {
     carregarAlunos();
+    carregarProfessores();
   }, []);
 
   async function carregarAlunos() {
     try {
-      const dados = await listarAlunos();
-      setAlunos(dados);
+      const dados_a = await listarAlunos();
+      setAlunos(dados_a);
+      setErro("");
+    } catch (e) {
+      setErro(mensagemConexao);
+    }
+  }
+
+  async function carregarProfessores() {
+    try {
+      const dados_b = await listarProfessores();
+      setProfessores(dados_b);
       setErro("");
     } catch (e) {
       setErro(mensagemConexao);
@@ -47,6 +61,24 @@ function App() {
     }
   }
 
+  async function aoSalvarp(professor) {
+    try {
+      await criarProfessor(professor);
+      carregarProfessores(professor);
+    } catch (e) {
+      setErro(mensagemConexao);
+    }
+  }
+
+  async function aoExcluirp(id) {
+    try {
+      await excluirProfessor(id);
+      carregarProfessores(id);
+    } catch (e) {
+      setErro(mensagemConexao);
+    }
+  }
+
   return (
     <div className="App">
       <header className="cabecalho-ifrn">
@@ -56,7 +88,7 @@ function App() {
           className="logo-ifrn"
           onError={function (e) { e.target.style.display = "none"; }}
         />
-        <h1>Sistema Escolar — Cadastro de Alunos</h1>
+        <h1>Sistema Escolar — Cadastro de Alunos e Professores</h1>
       </header>
       <BarraNavegacao />
       <MensagemErro mensagem={erro} />
@@ -64,7 +96,8 @@ function App() {
         <Route path="/" element={<PaginaInicial />} />
         <Route path="/alunos" element={<PaginaListagem alunos={alunos} aoExcluir={aoExcluir} />} />
         <Route path="/cadastro" element={<PaginaCadastro aoSalvar={aoSalvar} />} />
-        <Route path="/cadastroProfessor" element={<PaginaCadastroProfessor aoSalvar={aoSalvar} />} />
+        <Route path="/professores" element={<PaginaListagemProfessor professores={professores} aoExcluir={aoExcluirp} />} />
+        <Route path="/cadastroProfessor" element={<PaginaCadastroProfessor aoSalvar={aoSalvarp} />} />
       </Routes>
     </div>
   );
